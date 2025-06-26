@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .welcome {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .alt-option {
+            margin-top: 10px;
+        }
+
+        .alt-option a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .alt-option a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #ffcccb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <div class="welcome">Create your account below</div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <!-- Залишено тільки 3 поля -->
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="confirm_password" placeholder="Confirm Password">
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="alt-option">
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </div>
+    </div>
+</body>
+</html>

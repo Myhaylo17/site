@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        :root {
+            --primary-bg: linear-gradient(to right, #6a11cb, #2575fc);
+            --container-bg: rgba(0, 0, 0, 0.4);
+            --button-bg: #00c9a7;
+            --button-hover: #00a78e;
+            --accent-color: #ffd700;
+            --error-color: #ffcccb;
+            --border-radius: 8px;
+            --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background: var(--primary-bg);
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .container {
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .text-medium {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 10px;
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        .link-accent {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-accent:hover {
+            text-decoration: underline;
+        }
+
+        .text-error {
+            color: var(--error-color);
+        }
+
+        .mt-10 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Authorization</h2>
+        <div class="text-medium">Welcome to our platform!</div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="text-error">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <input class="form-control" type="text" name="username" placeholder="Username" required>
+            <input class="form-control" type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <div class="mt-10">
+            Don't have an account? <a href="{% url 'register' %}" class="link-accent">Register</a>
+        </div>
+    </div>
+</body>
+</html>

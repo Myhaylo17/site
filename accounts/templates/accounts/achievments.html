@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Achievements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-color: #6c5ce7;
+      --secondary-color: #5649c0;
+      --accent-color: #7d6bff;
+      --light-color: #2d3436;
+      --dark-color: #1e272e;
+      --text-color: #dfe6e9;
+      --card-bg: #2d3436;
+      --border-color: #3d4a52;
+      --hover-color: #7d6bff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--dark-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      padding: 40px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: var(--accent-color);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .achievment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .achievment-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .achievment-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-color);
+    }
+
+    .achievment-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .achievment-card p {
+      color: #b2bec3;
+      font-size: 0.95rem;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-exit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background-color: transparent;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-exit:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-exit svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-exit:hover svg {
+      transform: translateX(-5px);
+    }
+
+    .motivation {
+      margin-top: 60px;
+      text-align: center;
+      padding: 20px;
+      background-color: #1e1f25;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .motivation h2 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .motivation p {
+      color: #b2bec3;
+      font-size: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Achievements</h1>
+
+    <div class="achievment-grid">
+      <div class="achievment-card">
+        <h3>🏆 First Login</h3>
+        <p>You successfully logged into your account for the first time.</p>
+      </div>
+      <div class="achievment-card">
+        <h3>💬 First Comment</h3>
+        <p>You left your first comment on a post or activity.</p>
+      </div>
+      <div class="achievment-card">
+        <h3>🔥 Active for 7 Days</h3>
+        <p>You’ve been using the app daily for a week. Keep it going!</p>
+      </div>
+      <div class="achievment-card">
+        <h3>📊 100% Profile</h3>
+        <p>Your profile is fully completed. You’re all set!</p>
+      </div>
+      <div class="achievment-card">
+        <h3>🚀 Fast Learner</h3>
+        <p>You completed your first tutorial within 24 hours of registration.</p>
+      </div>
+      <div class="achievment-card">
+        <h3>🕓 Long Session</h3>
+        <p>You stayed active for more than 2 hours in a single session.</p>
+      </div>
+    </div>
+
+    <div class="center">
+      <a href="{% url 'home' %}" class="btn-exit">
+        <svg viewBox="0 0 24 24"><path d="M15.5 5l-1.42 1.41L17.67 10H4v2h13.67l-3.59 3.59L15.5 17l6.5-6.5z"/></svg>
+        Back to Dashboard
+      </a>
+    </div>
+
+    <div class="motivation">
+      <h2>Keep Achieving! 🌟</h2>
+      <p>Every small step counts. Stay consistent and keep unlocking more milestones. The journey has just begun!</p>
+    </div>
+  </div>
+
+</body>
+</html>
