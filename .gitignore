@@ -1,11 +1,7 @@
-*.pyc
-__pycache__/
-*.sqlite3
-db.sqlite3
-.env
-venv/
-staticfiles/
-media/
-.idea/
-.vscode/
-.DS_Store
+echo *.pyc > .gitignore
+echo __pycache__/ >> .gitignore
+echo db.sqlite3 >> .gitignore
+echo *.log >> .gitignore
+echo .env >> .gitignore
+echo staticfiles/ >> .gitignore
+echo media/ >> .gitignore
